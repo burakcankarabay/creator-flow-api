@@ -30,6 +30,13 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", message: "SparkGrid API çalışıyor" });
 });
 
+app.use(
+  cors({
+    origin: "https://sparkgrid.onrender.com", // Tüm frontend adreslerinden gelen isteklere izin verir
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
+);
 // MongoDB Bağlantısı ve Sunucu Başlatma
 mongoose
   .connect(process.env.MONGO_URI)
