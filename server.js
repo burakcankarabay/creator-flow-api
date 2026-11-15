@@ -27,7 +27,7 @@ app.use("/api/hooks", protect, hookRoutes);
 
 // Sağlık Kontrolü
 app.get("/api/health", (req, res) => {
-  res.json({ status: "ok", message: "CreatorFlow API çalışıyor" });
+  res.json({ status: "ok", message: "SparkGrid API çalışıyor" });
 });
 
 // MongoDB Bağlantısı ve Sunucu Başlatma
