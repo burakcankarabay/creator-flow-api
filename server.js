@@ -8,6 +8,10 @@ import videoRoutes from "./routes/videoRoutes.js";
 import hookRoutes from "./routes/hookRoutes.js";
 import { protect } from "./middleware/authMiddleware.js";
 
+dotenv.config();
+
+const app = express();
+
 app.use(
   cors({
     origin: "https://sparkgrid.onrender.com", // Tüm frontend adreslerinden gelen isteklere izin verir
@@ -16,9 +20,6 @@ app.use(
   }),
 );
 
-dotenv.config();
-
-const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
