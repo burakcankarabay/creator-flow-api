@@ -6,6 +6,7 @@ import authRoutes from "./routes/authRoutes.js";
 import channelRoutes from "./routes/channelRoutes.js";
 import videoRoutes from "./routes/videoRoutes.js";
 import hookRoutes from "./routes/hookRoutes.js";
+import webhookRoutes from "./routes/webhook.js";
 import { protect } from "./middleware/authMiddleware.js";
 
 dotenv.config();
@@ -21,8 +22,6 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
-
-const webhookRoutes = require("./routes/webhook");
 
 // 1. ÖNCE Webhook rotası (express.json()'dan önce olmalı!)
 app.use("/api/webhook", webhookRoutes);

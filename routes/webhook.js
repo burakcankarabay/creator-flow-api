@@ -1,6 +1,6 @@
-const express = require("express");
-const crypto = require("crypto");
-const User = require("../models/User"); // User modelinin yolu farklıysa güncelle
+import express from "express";
+import crypto from "crypto";
+import User from "../models/User.js"; // Dosya yolu veya adı farklıysa sonundaki .js'yi koruyarak güncelle
 
 const router = express.Router();
 
@@ -49,7 +49,6 @@ router.post(
       const event = JSON.parse(rawBody);
       const { event_type, data } = event;
 
-      // Frontend checkout sırasında customData içine koyacağımız userId
       const userId = data?.custom_data?.userId;
 
       if (!userId) {
@@ -92,4 +91,4 @@ router.post(
   },
 );
 
-module.exports = router;
+export default router;
