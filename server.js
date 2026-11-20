@@ -22,6 +22,13 @@ app.use(
   }),
 );
 
+const webhookRoutes = require("./routes/webhook");
+
+// 1. ÖNCE Webhook rotası (express.json()'dan önce olmalı!)
+app.use("/api/webhook", webhookRoutes);
+
+// 2. SONRA normal JSON middleware'i ve diğer rotalar
+
 app.use(express.json());
 
 // Açık Rotalar (Giriş & Kayıt)
